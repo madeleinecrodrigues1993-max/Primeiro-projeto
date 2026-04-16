@@ -1,6 +1,5 @@
-// ==========================
-// CONTADOR REGRESSIVO
-// ==========================
+// CONTADOR
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const contador = document.getElementById("contador");
@@ -25,13 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarContador();
     setInterval(atualizarContador, 1000);
 
-function abrirEnvio() {
-    window.open("https://drive.google.com/drive/folders/1l83xXIDHcTtZKi_vA7yqyw8pQB5l67nv", "_blank");
-}
-
-    // ==========================
     // MÚSICA
-    // ==========================
     const musica = document.getElementById("musica");
     const btnMusica = document.getElementById("btnMusica");
 
@@ -51,43 +44,7 @@ function abrirEnvio() {
 });
 
 
-// ==========================
-// PIX (FUNCIONA EM FILE://)
-// ==========================
-function copiarPix() {
-    const chave = "11943095976";
-
-    const input = document.createElement("input");
-    input.value = chave;
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
-
-    alert("Chave Pix copiada! ❤️");
+// ENVIAR FOTOS
+function abrirEnvio() {
+    window.open("https://drive.google.com/drive/folders/1l83xXIDHcTtZKi_vA7yqyw8pQB5l67nv", "_blank");
 }
-
-
-document.getElementById("formConfirmacao").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const convidados = document.getElementById("convidados").value;
-
-    const url = "https://docs.google.com/forms/d/e/1FAIpQLSdDmyH0MROtSJbJ2aVuaQLSeeK_djWWbwQAr6wDsWuJMX-vDA/formResponse";
-
-    const formData = new FormData();
-
-    formData.append("entry.1161453060", nome);
-    formData.append("entry.917461650", convidados);
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
-
-    alert("Presença confirmada! ❤️");
-
-    document.getElementById("formConfirmacao").reset();
-});
