@@ -1,68 +1,90 @@
-// CONTADOR
-const dataCasamento = new Date("May 3, 2026 14:00:00").getTime();
-const contador = document.getElementById("contador");
+// ==========================
+// CONTADOR REGRESSIVO
+// ==========================
+document.addEventListener("DOMContentLoaded", () => {
 
-setInterval(() => {
-    const agora = new Date().getTime();
-    const distancia = dataCasamento - agora;
+    const contador = document.getElementById("contador");
+    const dataCasamento = new Date("2026-05-03T14:00:00");
 
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    function atualizarContador() {
+        const agora = new Date();
+        const distancia = dataCasamento - agora;
 
-    contador.innerHTML = `${dias} dias, ${horas}h ${minutos}m`;
-}, 1000);
+        if (distancia < 0) {
+            contador.innerHTML = "Chegou o grande dia! ❤️";
+            return;
+        }
 
-// MÚSICA
-const musica = document.getElementById("musica");
-const btnMusica = document.getElementById("btnMusica");
+        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distancia / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((distancia / (1000 * 60)) % 60);
 
-btnMusica.addEventListener("click", () => {
-    if (musica.paused) {
-        musica.play();
-        btnMusica.textContent = "⏸ Pausar música";
-    } else {
-        musica.pause();
-        btnMusica.textContent = "🎵 Tocar música";
+        contador.innerHTML = `${dias} dias, ${horas}h ${minutos}m`;
     }
+
+    atualizarContador();
+    setInterval(atualizarContador, 1000);
+
+
+    // ==========================
+    // MÚSICA
+    // ==========================
+    const musica = document.getElementById("musica");
+    const btnMusica = document.getElementById("btnMusica");
+
+    btnMusica.addEventListener("click", () => {
+        if (musica.paused) {
+            musica.play().then(() => {
+                btnMusica.textContent = "⏸ Pausar música";
+            }).catch(() => {
+                alert("Clique novamente para ativar o som");
+            });
+        } else {
+            musica.pause();
+            btnMusica.textContent = "🎵 Tocar música";
+        }
+    });
+
 });
 
-// PIX DINÂMICO
+
+// ==========================
+// PIX (FUNCIONA EM FILE://)
+// ==========================
 function copiarPix() {
-    const chave = "+5511943095976"; // coloque sua chave real
-    navigator.clipboard.writeText(chave);
+    const chave = "SEU-PIX-AQUI";
+
+    const input = document.createElement("input");
+    input.value = chave;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+
     alert("Chave Pix copiada! ❤️");
 }
 
-// CONFIRMAÇÃO COM SALVAMENTO
-const form = document.getElementById("formConfirmacao");
-const lista = document.getElementById("lista");
 
-function carregarLista() {
-    const dados = JSON.parse(localStorage.getItem("confirmacoes")) || [];
-    lista.innerHTML = "";
-
-    dados.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.nome} - ${item.convidados} pessoa(s)`;
-        lista.appendChild(li);
-    });
-}
-
-form.addEventListener("submit", (e) => {
+document.getElementById("formConfirmacao").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value;
     const convidados = document.getElementById("convidados").value;
 
-    const dados = JSON.parse(localStorage.getItem("confirmacoes")) || [];
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSdDmyH0MROtSJbJ2aVuaQLSeeK_djWWbwQAr6wDsWuJMX-vDA/formResponse";
 
-    dados.push({ nome, convidados });
+    const formData = new FormData();
 
-    localStorage.setItem("confirmacoes", JSON.stringify(dados));
+    formData.append("entry.1161453060", nome);
+    formData.append("entry.917461650", convidados);
 
-    carregarLista();
-    form.reset();
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
+
+    alert("Presença confirmada! ❤️");
+
+    document.getElementById("formConfirmacao").reset();
 });
-
-carregarLista();
