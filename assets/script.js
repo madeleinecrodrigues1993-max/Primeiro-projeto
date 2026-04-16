@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarContador();
     setInterval(atualizarContador, 1000);
 
+function abrirEnvio() {
+    window.open("https://drive.google.com/drive/folders/1l83xXIDHcTtZKi_vA7yqyw8pQB5l67nv", "_blank");
+}
 
     // ==========================
     // MÚSICA
