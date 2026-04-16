@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    color: #333;
+}
+
+.background-img {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/imagens/casal.jpeg") no-repeat center;
+    background-size: cover;
+    z-index: -5;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 240, 245, 0.4);
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+    background: rgba(179, 0, 45, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+header h1 {
+    font-size: 3em;
+    font-family: Playfair Display, serif;
+}
+
+#contador {
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+section {
+    background: white;
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    animation: fadeIn 1s ease;
+}
+
+section::before {
+    content: "❤";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    color: #b3002d;
+}
+
+section::after {
+    content: "❤";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    color: #b3002d;
+}
+
+h2 {
+    text-align: center;
+    color: #b3002d;
+    margin-bottom: 15px;
+    font-family: Playfair Display, serif;
+}
+
+.mensagem {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.presentes {
+   text-align: center;
+}
+
+.btn-pix {
+    margin: 20px auto;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(179, 0, 45, 0.4);
+}
+
+.pix-box {
+    padding: 15px;
+    background: #ffe5ea;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pix-box:hover {
+    background: #ffd6df;
+    transform: scale(1.05);
+}
+
+.agradecimento {
+    text-align: center;
+    margin-top: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, button {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background: #b3002d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #800020;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+}
+
+#lista li {
+    background: #ffe5ea;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(179, 0, 45, 0.8);
+    color: white;
+}
+
+#btnMusica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #b3002d;
+    color: white;
+    border-radius: 50px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .presentes {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    section {
+        margin: 20px;
+    }
+}

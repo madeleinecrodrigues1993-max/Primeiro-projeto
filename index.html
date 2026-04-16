@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento - Madeleine e Fábio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<div class="background-img"></div>
+<div class="overlay"></div>
+
+<header>
+    <h1>Madeleine e Fábio</h1>
+    <p>Vamos celebrar o amor</p>
+    <p><strong>03/05/2026 às 14:00</strong></p>
+    <div id="contador"></div>
+</header>
+
+<section>
+    <p class="mensagem">
+        Sejam bem-vindos ao nosso grande dia!
+    </p>
+    <p>Com muita alegria, queremos compartilhar esse momento tão especial com você. Nosso casamento marca o início de um novo capítulo em nossas vidas, e não poderíamos estar mais felizes em ter pessoas tão importantes ao nosso lado.</p>
+    <p>Criamos este espaço com carinho para reunir todas as informações sobre a nossa recepção e também algumas formas de participar desse momento, mesmo que à distância.</p>
+    <p>Mais do que presentes, o que realmente desejamos é celebrar o amor, a união e a presença de quem faz parte da nossa história.</p>
+    <p>Agradecemos de coração por fazer parte desse sonho!</p>
+    <p>Com amor,</p>
+    <p>Madeleine e Fábio ❤️</p>
+    </p>
+</section>
+
+<section>
+    <h2>Localização</h2>
+    <iframe src="https://www.google.com/maps?q=-23.390989,-46.359347&output=embed"></iframe>
+</section>
+
+    <section class="presentes">
+    <h2>Presentes</h2>
+
+    <p>
+        Caso deseje nos presentear, ficaremos felizes com sua contribuição.
+    </p>
+
+    <button class="btn-pix" onclick="copiarPix()">
+        💝 Copiar chave Pix
+    </button>
+
+    <p class="agradecimento">
+        Obrigado por fazer parte desse momento especial!
+    </p>
+</section>
+
+
+<section>
+    <h2>Confirmação de presença</h2>
+
+    <form id="formConfirmacao">
+        <input type="text" id="nome" placeholder="Seu nome completo" required>
+        <input type="number" id="convidados" placeholder="Quantidade de pessoas" required>
+        <button type="submit">Confirmar Presença</button>
+    </form>
+
+    <ul id="lista"></ul>
+</section>
+
+<footer>
+    <p>Com amor, Madeleine e Fábio</p>
+</footer>
+
+<audio id="musica" loop>
+    <source src="assets/musica/WhatsApp-Audio-2026-04-15-at-11.44.15-PM.mp3" type="audio/mpeg">
+</audio>
+
+<button id="btnMusica">🎵 Tocar música</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
