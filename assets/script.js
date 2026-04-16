@@ -55,7 +55,7 @@ function abrirEnvio() {
 // PIX (FUNCIONA EM FILE://)
 // ==========================
 function copiarPix() {
-    const chave = "SEU-PIX-AQUI";
+    const chave = "11943095976";
 
     const input = document.createElement("input");
     input.value = chave;
